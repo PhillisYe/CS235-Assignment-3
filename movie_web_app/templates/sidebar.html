@@ -1,0 +1,16 @@
+<aside id="sidebar">
+
+    <header>
+        <h1>Top 10 Movies!</h1>
+    </header>
+
+    {% for movie in selected_movies %}
+        <div id="article-container">
+
+            <div id="article-description">
+                <a class="btn-sidebar" href="{{ rank_urls[movie.rank] }}">{{ movie.title }}, {{ movie.release_year }}</a>
+                <p>(Top {{ movie.rank }})</p>
+            </div>
+        </div>
+    {% endfor %}
+</aside>

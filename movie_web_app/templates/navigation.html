@@ -1,0 +1,17 @@
+<nav id="nav">
+
+    <div>
+      <h2 id="sub-nav-header">Browse by Release Year</h2>
+      {% for year in year_urls %}
+        <a class="btn-nav" href="{{ year_urls[year] }}">{{ year }}</a>
+      {% endfor %}
+    </div>
+
+    <div>
+        <h2 id="sub-nav-header">Browse by Genre</h2>
+        {% for genre in genre_urls %}
+            <a class="btn-nav" href="{{ genre_urls[genre] }}">{{ genre }}</a>
+        {% endfor %}
+    </div>
+
+</nav>

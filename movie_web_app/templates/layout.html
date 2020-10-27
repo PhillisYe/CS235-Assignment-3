@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS235 Movie Web Application</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+
+	<link
+      rel="bookmark"
+	  type="image/x-icon"
+      href="favicon.ico"
+    />
+
+	<link
+      rel="icon"
+      href="favicon.ico"
+    />
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+
+<body>
+  {% include 'topbar.html' %}
+
+  <div id="body">
+      <!-- Include navigation partial. -->
+      {% include 'navigation.html' %}
+
+      <div id="content-2">
+          <!-- Include header partial. -->
+          {% include 'header.html' %}
+
+          <div id="container">
+              <!-- Main content block to be supplied by page. -->
+              {% block content %} {% endblock %}
+
+              <!-- Include sidebar partial. -->
+              {% include 'sidebar.html' %}
+          </div>
+      </div>
+  </div>
+  <footer>
+      {% include 'footer.html' %}
+  </footer>
+
+</body>
+
+</html>

@@ -89,7 +89,7 @@ class SqlAlchemyRepository(AbstractRepository):
         movie = None
 
         try:
-            movie = self._session_cm.session.query(Movie).filter(_Movie__rank=rank).one()
+            movie = self._session_cm.session.query(Movie).filter(__rank=rank).one()
         except NoResultFound:
             # Ignore any exception and return None.
             pass
@@ -102,7 +102,7 @@ class SqlAlchemyRepository(AbstractRepository):
             return movies
         else:
             # Return movies matching rank_list; return an empty list if there are no matches.
-            movies = self._session_cm.session.query(Movie).filter(_Movie__rank == rank).all()
+            movies = self._session_cm.session.query(Movie).filter(Movie.__rank == rank).all()
             return movies
 
     def get_number_of_movies(self):

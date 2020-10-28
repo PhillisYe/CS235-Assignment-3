@@ -1,12 +1,10 @@
 from sqlalchemy import (
-    create_engine, Table, MetaData, Column, Integer, String, Date, DateTime,
+    Table, MetaData, Column, Integer, String, Date, DateTime,
     ForeignKey
 )
 from sqlalchemy.orm import mapper, relationship
 
 from movie_web_app.domain import model
-
-engine = create_engine('sqlite:///:memory:')
 
 metadata = MetaData()
 
@@ -100,44 +98,5 @@ def map_model_to_tables():
         '__review_text': reviews.c.review,
         '__rating': reviews.c.rating,
         '__timestamp': reviews.c.timestamp
-    })
-    mapper(model.Movie, release_years, properties={'__release_year': release_years.c.year})
-    mapper(model.Movie, movie_years, properties={
-        '__'
-    })
-    directors_mapper = mapper(model.Director, directors, properties={
-        '__director_full_name': directors.c.name
-    })
-    actors_mapper = mapper(model.Actor, actors, properties={
-        '__actor_full_name': actors.c.name
-    })
-    genres_mapper = mapper(model.Genre, genres, properties={
-        '__genre_name': genres.c.name
-    })
-    mapper(model.Movie, movies, properties={
-        '__rank': movies.c.rank,
-        '__release_year': relationship(
-            year_mapper,
-            secondary=movie_years,
-            #backref='__release_year'
-        ),
-        '__title': movies.c.title,
-        '__description': movies.c.description,
-        '__reviews': relationship(model.Review, backref='__movie'),
-        '__director': relationship(
-            directors_mapper,
-            secondary=movie_directors,
-            #backref='__director_full_name'
-        ),
-        '__actors': relationship(
-            actors_mapper,
-            secondary=movie_actors,
-            #backref='__actor_full_name'
-        ),
-        '__genres': relationship(
-            genres_mapper,
-            secondary=movie_genres,
-            #backref='__genre_name'
-        )
     })
 

@@ -6,8 +6,6 @@ from sqlalchemy.exc import IntegrityError
 
 from movie_web_app.domain.model import Movie, Director, Actor, Genre, User, Review, WatchList, make_review
 
-article_date = datetime.date(2020, 2, 28)
-
 
 def insert_user(empty_session, values=None):
     new_name = "Andrew"
@@ -30,6 +28,7 @@ def insert_users(empty_session, values):
                               {'username': value[0], 'password': value[1]})
     rows = list(empty_session.execute('SELECT id from users'))
     keys = tuple(row[0] for row in rows)
+    print(empty_session.query(User).all())
     return keys
 
 

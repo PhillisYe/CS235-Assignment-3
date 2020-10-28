@@ -145,25 +145,25 @@ class MemoryRepository(AbstractRepository):
         if review in self.__reviews:
             return True
 
-    def add_user_watched_movie(self,user,movie):
-        user.watch_movie(movie)
+    #def add_user_watched_movie(self,user,movie):
+    #    user.watch_movie(movie)
 
-    def get_user_watched_movies(self,user):
-        return user.watched_movies
+    #def get_user_watched_movies(self,user):
+    #    return user.watched_movies
 
-    def add_user_watch_list(self,user,movie):
-        if user not in self.__user_watch_list.keys():
-            self.__user_watch_list[user] = WatchList()
-        self.__user_watch_list[user].add_movie(movie)
+    #def add_user_watch_list(self,user,movie):
+    #    if user not in self.__user_watch_list.keys():
+    #        self.__user_watch_list[user] = WatchList()
+    #    self.__user_watch_list[user].add_movie(movie)
 
-    def delete_movie_from_watch_list(self,user,movie):
-        if user in self.__user_watch_list.keys():
-            self.__user_watch_list[user].remove_movie(movie)
+    #def delete_movie_from_watch_list(self,user,movie):
+    #    if user in self.__user_watch_list.keys():
+    #        self.__user_watch_list[user].remove_movie(movie)
 
-    def get_user_watch_list(self,user):
-        if user not in self.__user_watch_list.keys():
-            self.__user_watch_list[user] = WatchList()
-        return self.__user_watch_list[user]
+    #def get_user_watch_list(self,user):
+    #    if user not in self.__user_watch_list.keys():
+    #        self.__user_watch_list[user] = WatchList()
+    #    return self.__user_watch_list[user]
 
 def read_csv_file(filename):
     with open(filename) as csvfile:

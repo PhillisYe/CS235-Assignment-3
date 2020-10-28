@@ -124,18 +124,18 @@ class AbstractRepository(abc.ABC):
         """Return the review of a Movie stored in the repository."""
         raise NotImplementedError
 
-    @abc.abstractmethod
-    def get_user_watched_movies(self, user):
-        raise NotImplementedError
+    #@abc.abstractmethod
+    #def get_user_watched_movies(self, user):
+    #    raise NotImplementedError
 
-    @abc.abstractmethod
-    def add_user_watch_list(self, user, movie):
-        raise NotImplementedError
+    #@abc.abstractmethod
+    #def add_user_watch_list(self, user, movie):
+    #    raise NotImplementedError
 
-    @abc.abstractmethod
-    def delete_movie_from_watch_list(self, user, movie):
-        raise NotImplementedError
+    #@abc.abstractmethod
+    #def delete_movie_from_watch_list(self, user, movie):
+     #   raise NotImplementedError
 
-    @abc.abstractmethod
-    def get_user_watch_list(self, user):
-        raise NotImplementedError
+    #@abc.abstractmethod
+    #def get_user_watch_list(self, user):
+    #    raise NotImplementedError
